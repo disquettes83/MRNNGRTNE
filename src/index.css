@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 71% 4%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 224 71% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 263 75% 67%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 215 27% 16%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27% 16%;
+    --muted-foreground: 217 10% 64%;
+
+    --accent: 215 27% 16%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27% 16%;
+    --input: 215 27% 16%;
+    --ring: 263 75% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Componenti per le routine */
+  .routine-task {
+    @apply bg-white p-3 rounded-md border border-border shadow-sm transition-all hover:shadow-md;
+  }
+  
+  .routine-task.completed {
+    @apply bg-green-50 border-green-200;
+  }
+  
+  .routine-task.active {
+    @apply bg-indigo-50 border-indigo-200;
+  }
+  
+  .stat-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .stat-badge-energy {
+    @apply bg-amber-100 text-amber-800;
+  }
+  
+  .stat-badge-mental {
+    @apply bg-indigo-100 text-indigo-800;
+  }
+  
+  .stat-badge-physical {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .stat-badge-influence {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  /* Stile per il feed social */
+  .social-post {
+    @apply bg-white p-4 rounded-md border border-gray-200 shadow-sm mb-4;
+  }
+  
+  .social-post-header {
+    @apply flex items-center justify-between mb-3;
+  }
+  
+  .social-post-content {
+    @apply text-sm mb-3;
+  }
+  
+  .social-post-image {
+    @apply bg-gray-100 rounded-md overflow-hidden mb-3;
+  }
+  
+  .social-post-actions {
+    @apply flex justify-between text-xs text-gray-500;
+  }
+  
+  /* Stile per il negozio prodotti */
+  .product-card {
+    @apply bg-white p-3 rounded-md border border-gray-200 shadow-sm mb-3 transition-all hover:shadow-md;
+  }
+  
+  .product-card-premium {
+    @apply bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-200;
+  }
+  
+  /* Stile per i consigli del guru */
+  .guru-tip {
+    @apply bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-md border border-indigo-200 shadow-sm;
+  }
+  
+  /* Stile per gli eventi */
+  .event-card {
+    @apply bg-white p-4 rounded-md border border-gray-200 shadow-md;
+  }
+  
+  .event-card-productivity {
+    @apply bg-amber-50 border-amber-200;
+  }
+  
+  .event-card-social {
+    @apply bg-green-50 border-green-200;
+  }
+  
+  .event-card-burnout {
+    @apply bg-red-50 border-red-200;
+  }
+  
+  /* Animazioni */
+  .pulse-success {
+    animation: pulse-green 2s ease-in-out 1;
+  }
+  
+  .pulse-warning {
+    animation: pulse-amber 2s ease-in-out 1;
+  }
+  
+  .pulse-danger {
+    animation: pulse-red 2s ease-in-out 1;
+  }
+  
+  @keyframes pulse-green {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(134, 239, 172, 0.25);
+    }
+  }
+  
+  @keyframes pulse-amber {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(251, 191, 36, 0.25);
+    }
+  }
+  
+  @keyframes pulse-red {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(239, 68, 68, 0.25);
+    }
+  }
+}
